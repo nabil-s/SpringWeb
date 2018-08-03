@@ -2,9 +2,9 @@
 
 node {
 
-    def mavenImg = docker.build('maven:3-alpine', '-v $HOME/.m2:/root/.m2 --network container:sonarqube')
+    def mavenImg = docker.build('maven:3-alpine')
 
-    mavenImg.inside {
+    mavenImg.inside('-v $HOME/.m2:/root/.m2 --network container:sonarqube') {
         stage('Build') {
             echo 'Building...'
             sh 'mvn -X clean'
