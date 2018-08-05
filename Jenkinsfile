@@ -5,6 +5,7 @@ node {
     docker.image('maven:3-alpine').inside('--network container:sonarqube -v $HOME/.m2:/root/.m2 -w /usr/src/maven') {
         stage('Build') {
             echo 'Building...'
+            echo 'HOME={$HOME}'
             sh 'mvn -version'
             sh 'mvn -X clean'
         }
