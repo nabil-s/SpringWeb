@@ -6,18 +6,18 @@ node {
         stage('Build') {
             echo 'Building...'
             sh 'mvn -version'
-            sh 'mvn -X -B -DskipTests clean package'
+//            sh 'mvn -X -B -DskipTests clean package'
         }
         stage('Scan') {
             echo 'Scanning...'
-            sh 'mvn -X -DskipTests sonar:sonar'
+//            sh 'mvn -X -DskipTests sonar:sonar'
         }
         stage('Test') {
             echo 'Testing...'
         }
         stage('Deploy') {
             echo 'Deploying...'
-            sh 'mvn -X install'
+//            sh 'mvn -X install'
         }
     }
 }
