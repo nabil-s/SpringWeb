@@ -6,7 +6,7 @@ node {
         stage('Build') {
             echo 'Building...'
             sh 'mvn -version'
-            sh 'mvn -X -B clean'
+            sh 'mvn -X -B clean package'
         }
         stage('Scan') {
             echo 'Scanning...'
