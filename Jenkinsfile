@@ -1,7 +1,7 @@
 #!groovy
 
 node {
-    docker.image('maven:3-alpine').inside('--network container:sonarqube -v $HOME/.m2:/root/.m2') {
+    docker.image('maven:3-alpine').inside('--network container:sonarqube -v /root/.m2:/root/.m2') {
 //    docker.image('maven:3-alpine').inside('--network container:sonarqube -v $HOME/.m2:/root/.m2 -w /usr/src/maven') {
         stage('Build') {
             echo 'Building...'
