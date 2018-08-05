@@ -1,6 +1,8 @@
 #!groovy
 
+/* Requires the Docker Pipeline plugin */
 node {
+    checkout scm
     docker.image('maven:3-alpine').inside('--network container:sonarqube -v /root/.m2:/root/.m2') {
 //    docker.image('maven:3-alpine').inside('--network container:sonarqube -v $HOME/.m2:/root/.m2 -w /usr/src/maven') {
         stage('Build') {
