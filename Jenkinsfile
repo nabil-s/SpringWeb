@@ -2,7 +2,7 @@
 
 node {
 //    docker.image('maven:3-alpine').inside('-v /root/.m2:/root/.m2 --network container:sonarqube') {
-    docker.image('maven:3-alpine').inside('--network container:sonarqube -v "$(pwd)":/usr/src/maven -w /usr/src/maven') {
+    docker.image('maven:3-alpine').inside('--network container:sonarqube -v /root/.m2:/root/.m2 -w /usr/src/maven') {
 
         stage('Build') {
             echo 'Building...'
