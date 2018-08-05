@@ -12,14 +12,14 @@ node {
         }
         stage('Scan') {
             echo 'Scanning...'
-//            sh 'mvn -X -DskipTests sonar:sonar'
+            sh 'mvn -X -DskipTests sonar:sonar'
         }
         stage('Test') {
             echo 'Testing...'
         }
         stage('Deploy') {
             echo 'Deploying...'
-//            sh 'mvn -X install'
+            sh 'mvn -X install'
         }
     }
 }
